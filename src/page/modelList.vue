@@ -10,7 +10,7 @@
               <!--<el-table-column prop="create_time" label="创建时间"></el-table-column>-->
               <el-table-column prop="create_time" label="操作">
                 <el-row>
-                  <el-button type="primary" icon="el-icon-edit" circle size="mini" v-on:click="Edit(tableData)"></el-button>
+                  <el-button type="primary" icon="el-icon-edit" circle size="mini" v-on:click="Edit('unTotal')"></el-button>
                   <el-button type="danger" icon="el-icon-delete" circle size="mini" v-on:click="Delete(tableData)"></el-button>
                 </el-row>
               </el-table-column>
@@ -58,12 +58,14 @@ export default {
     //     console.log('获取数据失败', err)
     //   }
     // },
-    Edit (val) {
-      val.forEach(item => {
-        console.log(item)
-      })
-      alert(val)
-      console.log('hello')
+    Edit (type) {
+      if (type === 'unTotal') {
+        console.log('hello')
+        this.$router.push({
+          path: '/home',
+          name: 'user'
+        })
+      }
     },
     Delete () {
       console.log('sd')
